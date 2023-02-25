@@ -1,10 +1,14 @@
 
 
 import React from 'react'
+import FilmForm from '../components/FilmForm';
+import Card from '../components/Card';
 
-function AddFilm() {
+function AddFilm(props) {
     return (
-        <div>AddFilm</div>
+        <Card>
+            <FilmForm onAdd={props.onAdd}></FilmForm>
+        </Card>
     )
 }
 
