@@ -3,8 +3,12 @@ import './App.css';
 import AllFilms from './views/AllFilms';
 import AddFilm from './views/AddFilm';
 import Favorites from './views/Favorites';
+import Login from './views/Login';
 import Home from './views/Home';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import LoginContext from './store/Login-context';
+import ExpReducer from './views/ExpReducer';
+
 
 function App() {
   const LIST_FILMS = [
@@ -15,6 +19,9 @@ function App() {
       image: 'https://www.booska-p.com/wp-content/uploads/2021/12/heat-article-anecodtes-booska-p-1-683x1024.jpg',
       description: "La bande de Neil McCauley à laquelle est venu se greffer Waingro, une nouvelle recrue, attaque un fourgon blindé pour s'emparer d'une somme importante en obligations. Cependant, ce dernier tue froidement l'un des convoyeurs et Chris Shiherlis se retrouve obligé de terminer le travail."
     },
+
+
+
     {
       id: 'f2',
       title: 'Inception',
@@ -24,6 +31,10 @@ function App() {
     },
   ];
 
+  const LogCtx = useContext(LoginContext);
+
+
+
 
   // function addNewFilm(newFilm) {
   //   setFilmList((previous) => {
@@ -31,18 +42,26 @@ function App() {
   //     return [...previous, newFilm];
   //   });
   // }
-  return (
+  if (LogCtx.isLogging)
+    return (
 
-    <Routes>
-      <Route path='/' element={<Home></Home>}></Route>
-      <Route path='/allFilms' element={<AllFilms></AllFilms>}></Route>
-      <Route path='/addFilm' element={<AddFilm></AddFilm>}></Route>
-      <Route path='/favourites' element={<Favorites></Favorites>}></Route>
-    </Routes>
+      <Routes>
+        <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/allFilms' element={<AllFilms></AllFilms>}></Route>
+        <Route path='/addFilm' element={<AddFilm></AddFilm>}></Route>
+        <Route path='/favourites' element={<Favorites></Favorites>}></Route>
+      </Routes>
+    );
+  else
+    return (
 
+      <Routes>
+        <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/exp' element={<ExpReducer></ExpReducer>}></Route>
+      </Routes>
+    );
 
-
-  );
 }
 
 export default App;

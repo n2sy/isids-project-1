@@ -5,16 +5,19 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import { FavouritesContextProvider } from './store/Favourites-context';
+import { LoginContextProvider } from './store/Login-context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-    <FavouritesContextProvider>
-      <BrowserRouter>
-        <Navbar></Navbar>
-        <App />
-      </BrowserRouter>
-    </FavouritesContextProvider>
+    <LoginContextProvider>
+      <FavouritesContextProvider>
+        <BrowserRouter>
+          <Navbar></Navbar>
+          <App />
+        </BrowserRouter>
+      </FavouritesContextProvider>
+    </LoginContextProvider>
   </>
 
 );

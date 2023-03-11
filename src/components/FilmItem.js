@@ -13,8 +13,10 @@ function FilmItem(props) {
     let isFavValue = favCtx.isFavrouite(props.oneFilm.id);
 
     function addToFav() {
-
-        favCtx.addFavourite(props.oneFilm)
+        if (isFavValue)
+            favCtx.removeFavourites(props.oneFilm.id);
+        else
+            favCtx.addFavourite(props.oneFilm)
     }
     return (
         <li>
