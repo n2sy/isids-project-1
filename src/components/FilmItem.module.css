@@ -42,5 +42,55 @@
 
 .actions button:hover,
 .actions button:active {
-  background-color: #ffe2ed;
+  background-color: #d1d1ff;
+}
+
+.title {
+  display: flex;
+  align-items: center; /* Aligne verticalement les éléments */
+  justify-content: center; /* Centrer par défaut */
+  margin-left: 20%;
+}
+
+.text {
+  text-transform: capitalize;
+  flex: 0 1 auto; /* Ajuste le texte à sa taille intrinsèque */
+  text-align: center;
+  font-size: 1.5rem;
+  color: #242582; /* Centrage par défaut */
+}
+
+.buttons {
+  display: flex;
+}
+
+.title .buttons {
+  margin-left: auto; /* Pousse les boutons complètement à droite */
+  margin-right: 10%;
+}
+
+.title.has-buttons {
+  justify-content: space-between; /* Réduit l'espace entre le texte et les boutons */
+}
+
+.title.has-buttons .text {
+  text-align: left; /* Texte aligné à gauche quand des boutons sont présents */
+}
+
+.btnedit {
+  font: inherit;
+  padding: 0.5rem 0.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  background: linear-gradient(to top right, #2f2727, #1a82f7);
+  color: white;
+  border: 1px solid #2f2727;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.96);
+  margin: 0 2px;
+}
+
+button:hover,
+button:active {
+  border: 1px solid #242582;
+  color: #1a82f7;
 }
